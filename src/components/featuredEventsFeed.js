@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-class FeaturedFeed extends Component {
+class FeaturedEventsFeed extends Component {
 	render(){
-		// console.log(store.getState())
 		return(
 			<div className='featured-feed-container'>
 					asdkhbasldihbj
@@ -12,5 +11,6 @@ class FeaturedFeed extends Component {
 }
 
 
-console.log("featuredfeed.js from components")
-export default FeaturedFeed
+console.log("featuredEventsFeed.js from components")
+
+export default FeaturedEventsFeed

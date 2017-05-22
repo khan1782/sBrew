@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
-import FeaturedFeed from './components/featuredfeed'
+import FeaturedFeeds from './containers/featuredFeeds'
+import MainFeeds from './containers/mainFeeds'
+import Modals from './containers/modals'
 
 console.log("app.js from src 1/1")
 
 class App extends Component {
   render() {
-    console.log(store)
     return (
       <div>
-       <FeaturedFeed /> 
+       <FeaturedFeeds /> 
+       <MainFeeds />
+       <Modals />
       </div>
     );
   }
@@ -38,30 +41,27 @@ export default App;
 //   modal location
 //     events feed
 //     brewery info
+
+
+
   //https://fictionlog.co/!!!!
 
 
-// COMPONENTS
-
-  // App 
-  //   featured feed
-  //   navBar
-
-  //   FeedContainer
-  //     EventFeed
-  //     BreweryFeed
-  //     LocationFeed
-
-  //   EventModal
-
-  //   BreweryModal
-
-  //   LocationModal
-  //   
 
 
+//<NavBar /> - eh?
+//<FeaturedFeed /> - container
+    //<FeaturedEventFeed /> -presentation
 
-  //want a container component for the 3 presentation feeds
-  //want a container component for presentation featured feed
-  //want a container component for 3 presentation modals
-    //nest container component in each presentation modal for modal feed
+//<MainFeed /> -container
+    //<MainEventFeed /> -presentation
+    //<MainLocationFeed /> -presentation
+    //<MainBrewFeed /> -presentation
+
+//<Modals /> -container
+  //<EventModal /> -presentation && -container
+      //<EventModalFeed /> -presentation
+  //<BrewModal /> -presentation && -container
+      //<BrewModalFeed /> -presentation
+  //<LocationModal /> -presentation && -container
+      //<LocationtModalFeed /> -presentation
