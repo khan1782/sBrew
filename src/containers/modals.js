@@ -14,3 +14,4 @@ class Modals extends Component {
 
 console.log("modals.js from containers")
 export default Modals
+

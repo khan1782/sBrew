@@ -1,0 +1,107 @@
+
+{
+  "locations": [
+    {
+      "zip_code": "92107-3122",
+      "profile_location": true,
+      "state": "CA",
+      "location_tags": {
+        "Growler Fills": false,
+        "Family Friendly": false,
+        "Dog Friendly": false,
+        "21+ Only": false,
+        "Food Trucks": false,
+        "Food Service": false
+      },
+      "lat": 32.7453553,
+      "phone": "619-255-9775",
+      "updated": "2017-03-07 09:47:05.099756-08:00",
+      "street": "1875 Cable Street :)",
+      "country": "US",
+      "uuid": "OqrZR86Fsk2U",
+      "name": "Kilowatt Brewing Ocean Beach :)",
+      "city": "San Diego",
+      "lon": -117.2494611
+    },
+    {
+      "zip_code": "92111-1504",
+      "profile_location": true,
+      "state": "CA",
+      "location_tags": {
+        "Growler Fills": false,
+        "Family Friendly": false,
+        "Dog Friendly": false,
+        "21+ Only": false,
+        "Food Trucks": false,
+        "Food Service": false
+      },
+      "lat": 32.8331097,
+      "phone": "858-715-3998",
+      "updated": "2017-03-07 09:47:16.020613-08:00",
+      "street": "7576 Clairemont Mesa Blvd. :)",
+      "country": "US",
+      "uuid": "LAmG8pP4EcsV",
+      "name": "Kilowatt Brewing Kearny Mesa :)",
+      "city": "San Diego",
+      "lon": -117.156277
+    }
+  ],
+  "instagram": "https://www.instagram.com/kilowattbeer/",
+  "website": "http://kilowatt.beer/",
+  "photo": {
+    "height": 1173,
+    "width": 1290,
+    "mimetype": "image/jpeg",
+    "url": "https://www.filepicker.io/api/file/NNTeNUbwTniDRBpsFco5"
+  },
+  "facebook": "https://www.facebook.com/kilowattbeer",
+  "name": "Kilowatt Brewing",
+  "uuid": "ZN6SZzkzibIu",
+  "twitter": "https://twitter.com/kilowattbeer",
+  "updated": "2017-03-20 13:13:09.581083-07:00"
+},
+
+
+
+
+
+
+
+
+
+
+  {
+    "body": "<p>The San Diego Brewers Guild’s annual spring bookend event will take place on Saturday, May 6th from 1 to 4 p.m. Join fellow craft beer aficionados in the heart of Vista Village to celebrate what sets San Diego beer apart from the rest — both its breweries and its enthusiasts, of course. You’ll have the opportunity to sample over 100 beers from over 50 of our county's award-winning breweries, all while grooving to live musical performances and enjoying delicious eats from local food trucks. Proceeds from the event will benefit the <a href=\"http://sandiegobrewersguild.org\">San Diego Brewers Guild</a>, a nonprofit whose mission is to promote awareness and increase the visibility of fresh, locally brewed beer through education and participation in community events. </p><p> Be sure to check back as we announce bands and breweries and for more <a href=\"https://twitter.com/sdbrewers\">#SDBeer</a> updates follow us on Instagram <a href=\"https://instagram.com/sdbrewers/\">@sdbrewers</a>.<br></p>",
+    "visible": true,
+    "start_date": "2017-05-06 06:00:00-07:00",
+    "title": "Rhythm & Brews Music and Craft Beer Festival",
+    "updated": "2017-02-03 08:17:53.671543-08:00",
+    "location_uuid": "2ntbtrMBWt5T",
+    "created": "2017-02-03 08:17:53.671488-08:00",
+    "end_date": "2017-05-06 09:00:00-07:00",
+    "id": 48359,
+    "event_photos": [
+      {
+        "width": 1600,
+        "url": "https://www.filepicker.io/api/file/NoULPXUS8OCpjl3ddys1",
+        "height": 800,
+        "mimetype": "image/jpeg"
+      }
+    ],
+    "tag1": "Beer Festivals",
+    "external_event_url": "https://www.facebook.com/events/255020381597800/",
+    "kind": "event",
+    "ticket_url": "https://tickets.sdbeer.com/e/2017sdrhythmandbrews"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
