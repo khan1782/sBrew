@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EventFeedComponent from '../components/eventFeedComponent'
+// import EventFeedComponent from '../components/eventFeedComponent'
 
 class MainEventFeed extends Component {
 	constructor(props){
@@ -26,11 +26,10 @@ class MainEventFeed extends Component {
 		const {events} = this.state
 		var toggle = "visible"
 
-		if(visibility.EVENT_FEED) 
-			{toggle= "hidden"}
+		if(visibility.EVENT_FEED) toggle= "hidden"
 
 		return(
-			<div style={{visibility:toggle}}>
+			<div style={{visibility:toggle,position:"absolute"}}>
 				{events.map((event,i)=>{
 					return <EventFeedComponent
 						event={event}
@@ -40,6 +39,20 @@ class MainEventFeed extends Component {
 		)
 	}
 }
+
+
+class EventFeedComponent extends Component {
+	render(){
+		const {event} = this.props
+		return(
+			<div>
+				{event.startDate}:{event.title}  --  {event.city}:{event.photo}
+			</div>
+		)
+	}
+}
+
+
 
 
 console.log("mainEventFeed from components")

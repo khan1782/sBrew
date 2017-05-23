@@ -9,12 +9,12 @@ class MainFeeds extends Component {
 //incoming show=this.props.show
 	constructor(props){
 		super(props)
-		this.state={eventFeed:[]}		
+		this.state={eventFeed:[],brewFeed:[]}		
 	}
 
 	componentDidUpdate(){
-		if(this.props.show.locations.length > 0 && this.state.eventFeed.length ===0	){
-			this.setState({eventFeed:this.generateEventFeed()})
+		if(this.props.show.locations.length > 0 && this.state.eventFeed.length ===0	&& this.props.show.brews.length > 0){
+			this.setState({eventFeed:this.generateEventFeed(),brewFeed:this.generateBrewFeed()})
 		}
 	}
 
@@ -32,12 +32,23 @@ class MainFeeds extends Component {
 		})
 	}
 
+	generateBrewFeed(){
+		const {brews} = this.props.show
+		var filteredBrews = brews.filter((b)=>{return typeof b.name !="string"})
+		return brews.map((b)=>{
+			return {
+				name:b.name,
+				photo:b.photo.url
+			}
+		})
+	}
+
 	render(){
 		const { toggleVisibility, show, visibility } = this.props
-		const { eventFeed } = this.state
+		const { eventFeed, brewFeed } = this.state
 		return(
 			<div 
-				style={{width:"400px"}}>
+				style={{width:"600px"}}>
 					<MainFeedNav 
 						toggleVisibility={toggleVisibility}/>
 					<MainEventFeed
@@ -45,11 +56,13 @@ class MainFeeds extends Component {
 						toggleVisibility={toggleVisibility}
 						visibility={visibility} />
 					<MainBrewFeed
-						brews={show.brews}
-						toggleVisibility={toggleVisibility} />
+						brews={brewFeed}
+						toggleVisibility={toggleVisibility}
+						visibility={visibility} />
 					<MainLocationFeed
 						locations={show.locations}
-						toggleVisibility={toggleVisibility} />
+						toggleVisibility={toggleVisibility}
+						visibility={visibility} />
 			</div>
 		)
 	}

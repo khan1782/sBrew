@@ -1,35 +1,43 @@
 import React, { Component } from 'react'
 
 class MainFeedNav extends Component {
-	constructor(props){
-		super(props)
-		this.handleClick = this.handleClick.bind(this)
-	}
-	handleClick(){
-		console.log("clicked")
-		this.props.toggleVisibility("EVENT_FEED")
-	}
 	render(){
+		const { toggleVisibility } = this.props
 		return(
-			<div 
-				style={{marginTop:"20px",display:"inline-block"}}
-				onClick={this.handleClick}>
-				Events
+			<div>
+				<NavButton 
+					title="EVENT_FEED"
+					toggleVisibility={toggleVisibility} />
+				<NavButton 
+					title="LOCATION_FEED"
+					toggleVisibility={toggleVisibility} />
+				<NavButton 
+					title="BREW_FEED" 
+					toggleVisibility={toggleVisibility} />
 			</div>
 		)
 	}
 }
 
-// class NavButton extends Component {
-// 	render(){
-// 		const { title } = this.props
-// 		return(
-// 			<div style={{display:"inline-block"}}>
-// 				{title}
-// 			</div>
-// 		)
-// 	}
-// }
+class NavButton extends Component {
+	constructor(props){
+		super(props)
+		this.handleClick = this.handleClick.bind(this)
+	}
+	handleClick(){
+		this.props.toggleVisibility(this.props.title)
+	}
+	render(){
+		const { title } = this.props
+		return(
+			<div 
+				style={{marginTop:"20px",display:"inline-block"}}
+				onClick={this.handleClick} >
+				{title}
+			</div>
+		)
+	}
+}
 
 
 
