@@ -6,13 +6,13 @@ class MainFeedNav extends Component {
 		return(
 			<div>
 				<NavButton 
-					title="EVENT_FEED"
+					title="eventFeed"
 					toggleVisibility={toggleVisibility} />
 				<NavButton 
-					title="LOCATION_FEED"
+					title="locationFeed"
 					toggleVisibility={toggleVisibility} />
 				<NavButton 
-					title="BREW_FEED" 
+					title="brewFeed" 
 					toggleVisibility={toggleVisibility} />
 			</div>
 		)
@@ -25,7 +25,7 @@ class NavButton extends Component {
 		this.handleClick = this.handleClick.bind(this)
 	}
 	handleClick(){
-		this.props.toggleVisibility(this.props.title)
+		this.props.toggleVisibility("feeds",this.props.title)
 	}
 	render(){
 		const { title } = this.props

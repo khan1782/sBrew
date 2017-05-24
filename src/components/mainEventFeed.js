@@ -22,18 +22,21 @@ class MainEventFeed extends Component {
 	}
 
 	render(){
-		const {visibility} = this.props
+		const {visibility,toggleVisibility,setModalID} = this.props
 		const {events} = this.state
-		var toggle = "visible"
+		var toggle = "hidden"
 
-		if(visibility.EVENT_FEED) toggle= "hidden"
+		if(visibility.feeds.eventFeed) toggle= "visible"
 
 		return(
 			<div style={{visibility:toggle,position:"absolute"}}>
 				{events.map((event,i)=>{
 					return <EventFeedComponent
+						setModalID={setModalID}
+						toggleVisibility={toggleVisibility}
 						event={event}
-						key={i} />
+						key={i} 
+						id={event.id} />
 				})}
 			</div>
 		)
@@ -42,10 +45,21 @@ class MainEventFeed extends Component {
 
 
 class EventFeedComponent extends Component {
+	constructor(props){
+		super(props)
+		this.handleClick=this.handleClick.bind(this)
+	}
+
+	handleClick(){
+		this.props.toggleVisibility("modals","eventModal")
+		this.props.setModalID(this.props.id)
+	}
+
 	render(){
 		const {event} = this.props
 		return(
-			<div>
+			<div
+				onClick={this.handleClick}>
 				{event.startDate}:{event.title}  --  {event.city}:{event.photo}
 			</div>
 		)

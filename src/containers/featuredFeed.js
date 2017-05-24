@@ -13,8 +13,8 @@ class FeaturedFeed extends Component {
 			<div
 				style={{width:"100%", border:"solid red"}}>
 					<Slider {...settings}>
-						{feed.map((featured)=>{
-							return <div key={featured.uuid}><FeaturedComponent 
+						{feed.map((featured,i)=>{
+							return <div key={i}><FeaturedComponent 
 								featured={featured}/></div>
 						})}
 					</Slider>

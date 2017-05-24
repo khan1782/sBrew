@@ -88,13 +88,16 @@ class App extends Component {
       <div>
         <FeaturedFeed 
           feed={this.state.featureFeed}
-          toggleVisibility={actions.toggleVisibility} /> 
+          toggleVisibility={actions.toggleVisibility}
+          setModalID={actions.setModalID} /> 
         <MainFeeds
           show={show}
           toggleVisibility={actions.toggleVisibility}
-          visibility={visibility} />
+          visibility={visibility}
+          setModalID={actions.setModalID} />
         <Modals
           show={show}
+          visibility={visibility}
           toggleVisibility={actions.toggleVisibility} />
       </div>
     );

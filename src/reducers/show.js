@@ -5,15 +5,19 @@ const initialState={
 		locations:[]
 	},
 	visibility:{
-		EVENT_MODAL:false,
-		EVENT_FEED:false,
-		BREW_MODAL:false,
-		BREW_FEED:false,
-		LOCATION_MODAL:false,
-		LOCATION_FEED:false
+		feeds:{
+			eventFeed:true,
+			brewFeed:false,
+			locationFeed:false
+		},		
+		modals:{
+			modalID:"",
+			locationModal:false,
+			eventModal:false,
+			brewModal:false
+		}
 	}
 }
-
 const show = (state=initialState.show, action) => { 
 	switch (action.type) {
 		case 'SET_EVENTS':

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 class MainLocationFeed extends Component {
 	render(){
-		const { locations,toggleVisibility,visibility } = this.props
+		const { toggleVisibility,locations,visibility, setModalID } = this.props
 		var toggle="hidden"
-		if(visibility.LOCATION_FEED) toggle="visible"
+		if(visibility.feeds.locationFeed) toggle="visible"
 	
 		return(		
 			<div style={{visibility:toggle,position:"absolute"}}>
@@ -14,8 +14,11 @@ class MainLocationFeed extends Component {
 					src="http://i.imgur.com/8cSg3Fi.png" />
 				{locations.map((l,i)=>{
 					return <LocationFeedComponent
+						setModalID={setModalID}
+						toggleVisibility={toggleVisibility}
 						key={i}
-						location={l} />
+						location={l}
+						id={l.uuid} />
 				})}
 			</div>
 		)
@@ -23,10 +26,19 @@ class MainLocationFeed extends Component {
 }
 
 class LocationFeedComponent extends Component {
+	constructor(props){
+		super(props)
+		this.handleClick=this.handleClick.bind(this)
+	}
+	handleClick(){
+		this.props.toggleVisibility("modals","locationModal")
+		this.props.setModalID(this.props.id)
+	}
 	render(){
 		const {location} = this.props
 		return (
-			<div>
+			<div
+				onClick={this.handleClick}>
 				{location.name}:location.city--{location.street}
 			</div>
 		)

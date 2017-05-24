@@ -27,6 +27,7 @@ class MainFeeds extends Component {
 			eventComponent.title		 = e.title
 			eventComponent.startDate = e.start_date
 			eventComponent.photo 		 = e.event_photos[0].url
+			eventComponent.id				 = e.id
 			eventComponent.city 		 = l.city
 			return eventComponent
 		})
@@ -34,17 +35,18 @@ class MainFeeds extends Component {
 
 	generateBrewFeed(){
 		const {brews} = this.props.show
-		var filteredBrews = brews.filter((b)=>{return typeof b.name !="string"})
+		var filteredBrews = brews.filter((b)=>{return typeof b.name !=="string"})
 		return brews.map((b)=>{
 			return {
 				name:b.name,
-				photo:b.photo.url
+				photo:b.photo.url,
+				uuid:b.uuid
 			}
 		})
 	}
 
 	render(){
-		const { toggleVisibility, show, visibility } = this.props
+		const { toggleVisibility, show, visibility, setModalID } = this.props
 		const { eventFeed, brewFeed } = this.state
 		return(
 			<div 
@@ -54,15 +56,18 @@ class MainFeeds extends Component {
 					<MainEventFeed
 						events={eventFeed}
 						toggleVisibility={toggleVisibility}
-						visibility={visibility} />
+						visibility={visibility}
+						setModalID={setModalID} />
 					<MainBrewFeed
 						brews={brewFeed}
 						toggleVisibility={toggleVisibility}
-						visibility={visibility} />
+						visibility={visibility}
+						setModalID={setModalID} />
 					<MainLocationFeed
 						locations={show.locations}
 						toggleVisibility={toggleVisibility}
-						visibility={visibility} />
+						visibility={visibility}
+						setModalID={setModalID} />
 			</div>
 		)
 	}
