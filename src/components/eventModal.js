@@ -12,7 +12,7 @@ class EventModal extends Component{
 
 
 	render(){
-		const { eventInfo,toggleVisibility } = this.props
+		const { eventInfo } = this.props
 	
 
 		return(

@@ -5,12 +5,10 @@ import FeaturedFeed from './containers/featuredFeed'
 import MainFeeds from './containers/mainFeeds'
 import Modals from './containers/modals'
 import * as BeerActions from './actions'
-import $ from 'jquery'; 
+// import $ from 'jquery'; 
 import './App.css';
 
 
-
-console.log("app.js from src 1/1")
 class App extends Component {
   constructor(props){
     super(props)
@@ -43,18 +41,21 @@ class App extends Component {
 
   generateFeaturedFeed(){
     var featuredFeed = []
-    var breweries = this.props.show.brews
-    var numBreweries = breweries.length
+    var events = this.props.show.events
+    var numEvents = events.length
     let numFeedComponents = 5
 
     for(var i=0;i<numFeedComponents;i++){
-      let randomIndex = Math.floor(Math.random()*numBreweries)
+      let randomIndex = Math.floor(Math.random()*numEvents)
       let featureComponent = {}
-      let brew = breweries[randomIndex]
+      while (events[randomIndex].visible === false  ){
+        randomIndex = Math.floor(Math.random()*numEvents)
+      }
+      let event = events[randomIndex]
 
-      featureComponent.photo = brew.photo.url
-      featureComponent.name = brew.name
-      featureComponent.uuid = brew.uuid
+      featureComponent.title = event.title
+      featureComponent.photo = event.event_photos[0].url
+      featureComponent.id = event.id
 
       featuredFeed.push(featureComponent)
     }
@@ -82,10 +83,16 @@ class App extends Component {
   
   render() {
     const {show,actions,visibility} = this.props
-    console.log("show:",show)
-    console.log("actions:",actions)
+  
     return (
-      <div>
+      <div >
+        <div style={{width:"100%",height:"120px", backgroundColor:"#0b667f",textAlign:"center"}}>
+          <img 
+            src="http://sdbeer.com/sites/default/files/logo-7eeb08d7f4866d9604c821586796c2471366c821e96db6b5a22fd5065b042a31_0.png"
+            height="100px"
+            style={{marginTop:"10px"}} />
+          
+        </div>
         <FeaturedFeed 
           feed={this.state.featureFeed}
           toggleVisibility={actions.toggleVisibility}
@@ -122,7 +129,6 @@ class App extends Component {
 
 
 function mapStateToProps(state) {
-  console.log("map state to props from apps run")
   return {
     show:state.show,
     visibility:state.visibility
@@ -130,7 +136,6 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  console.log("mapdispatchtoprops from apps run")
   return{ 
     actions:bindActionCreators(BeerActions,dispatch)
   }
@@ -166,7 +171,7 @@ export default connect(
 
 
 
-  //https://fictionlog.co/!!!!
+  //https://fictionlog.co/
 
 
 

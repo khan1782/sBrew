@@ -28,8 +28,17 @@ class MainEventFeed extends Component {
 
 		if(visibility.feeds.eventFeed) toggle= "visible"
 
+		const style={
+			visibility:toggle,
+			position:'absolute',
+			// border:"solid red 4px"
+			// marginLeft:"40%"
+			backgroundColor:"rgb(242, 242, 242)",
+			textAlign:"center"
+		}
+
 		return(
-			<div style={{visibility:toggle,position:"absolute"}}>
+			<div style={style}>
 				{events.map((event,i)=>{
 					return <EventFeedComponent
 						setModalID={setModalID}
@@ -57,10 +66,33 @@ class EventFeedComponent extends Component {
 
 	render(){
 		const {event} = this.props
+		const style={
+			width:"240px",
+			height:"200px",
+			backgroundColor:"white",
+			margin:"20px",
+			display:'inline-block',
+			overflow:"hidden",
+			content:"''",
+			textAlign:"center",
+			position:"relative",
+			boxShadow:"0 1px 20px -8px #636463"
+		}
 		return(
 			<div
+				className="shadow-hover"
+				style={style}
 				onClick={this.handleClick}>
-				{event.startDate}:{event.title}  --  {event.city}:{event.photo}
+				<header>{event.title}</header>
+				
+				<img 
+					className="hover"
+					style={{position:"absolute",bottom:"0",left:"0"}}
+					src={event.photo} 
+					alt="event" 
+					width="240px"
+					 />
+					
 			</div>
 		)
 	}
@@ -69,6 +101,6 @@ class EventFeedComponent extends Component {
 
 
 
-console.log("mainEventFeed from components")
+
 
 export default MainEventFeed

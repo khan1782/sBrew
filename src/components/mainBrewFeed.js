@@ -6,9 +6,9 @@ class MainBrewFeed extends Component {
 		var toggle= "hidden"
 
 		if(visibility.feeds.brewFeed) toggle = "visible"
-
+			
 		return(
-			<div style={{visibility:toggle,position:"absolute"}}>
+			<div style={{visibility:toggle,position:"absolute",textAlign:"center",backgroundColor:"rgb(242, 242, 242)"}}>
 					{brews.map((b,i)=>{
 						return <BrewFeedComponent
 							setModalID={setModalID}
@@ -34,16 +34,35 @@ class BrewFeedComponent extends Component{
 	}
 	render(){
 		const {brew} = this.props
+		const style={
+			width:"200px",
+			height:"220px",
+			// border:"dotted blue",
+			margin:"30px",
+			display:'inline-block',
+			overflow:"hidden",
+			content:"''",
+			textAlign:"center",
+			boxShadow:"0 1px 20px -8px #636463",
+			backgroundColor:"white",
+		}
 		return(
 			<div
+				style={style}
 				onClick={this.handleClick}>
-				{brew.name}---{brew.photo}
+				{brew.name}---
+				<img
+					src={brew.photo}
+					width="200px"
+					height="200px"
+					alt="brew"
+					className="hover" />
 			</div>
 		)
 	}
 }
 
 
-console.log("mainBrewFeed from components")
+
 
 export default MainBrewFeed

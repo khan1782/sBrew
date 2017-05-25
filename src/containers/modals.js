@@ -14,7 +14,7 @@ class Modals extends Component {
 	}
 
 	generateBrewInfo(){
-		const {brews,locations}=this.props.show
+		const {brews}=this.props.show
 		let brewInfo = brews.find((b)=>{ return b.uuid === this.props.visibility.modals.modalID })
 		return brewInfo
 	}
@@ -22,7 +22,7 @@ class Modals extends Component {
 	generateLocationInfo(){
 		const {locations, events}=this.props.show
 		let locationInfo=locations.find((l)=>{return l.uuid === this.props.visibility.modals.modalID})
-		// let eventsInfoArrays=events.filter((e)=>{return e.location_uuid===locationInfo.uuid})
+		locationInfo.events=events.filter((e)=>{return e.location_uuid===locationInfo.uuid})
 		return locationInfo
 	}
 
@@ -54,7 +54,7 @@ class BrewModal extends Component {
 		this.props.toggleVisibility("modals","modalOff")
 	}
 	render(){
-		const {toggleVisibility,brewInfo} = this.props
+		const {brewInfo} = this.props
 		return(
 			<div 
 				className="modal"
@@ -94,8 +94,21 @@ class LocationModal extends Component {
 				className="modal"
 				onClick={this.handleClick}>
 				<div className="modal-content">
-					
-					{locationInfo.name} - {locationInfo.street}
+					<header>{locationInfo.name} </header>
+					<img src={locationInfo.photo} alt="brew" width="200px"/>
+					<p>Address: {locationInfo.street}, {locationInfo.city}, {locationInfo.state}</p>
+					<p>Phone: {locationInfo.phone}</p>
+					<p>Brewery Info:</p>
+					<ul>
+						<li>Instagram:{locationInfo.instagram}</li>
+						<li>facebook:{locationInfo.facebook}</li>
+						<li>website:{locationInfo.website}</li>	
+					</ul>
+					<h2>Events for this Location</h2>
+					{locationInfo.events.map((e,i)=>{
+						
+						return <LocationModalEventFeed key={i} event={e}/>
+					})}
 				</div>
 			</div>
 		)
@@ -103,7 +116,23 @@ class LocationModal extends Component {
 }
 
 
+class LocationModalEventFeed extends Component {
+	render(){
+		const {event} = this.props
 
-console.log("modals.js from containers")
+		return(
+			<div>
+				<header style={{width:"100%", borderTop:"solid rgba(232,232,232,0.8)"}}></header>
+				<h2>{event.title}</h2>
+				<img src={event.event_photos[0].url} alt="event" width="300px" />
+				<p>Start Date: {event.start_date}</p>
+				<p dangerouslySetInnerHTML={{__html: event.body}} />
+			</div>
+		)
+	}
+}
+
+
+
 export default Modals
 

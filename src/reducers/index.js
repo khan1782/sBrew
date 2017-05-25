@@ -6,5 +6,5 @@ const beerApp = combineReducers({
 	visibility,
 	show
 })
-console.log("index.js of reducer 1/3")
+
 export default beerApp

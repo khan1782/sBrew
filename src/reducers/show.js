@@ -23,7 +23,7 @@ const show = (state=initialState.show, action) => {
 		case 'SET_EVENTS':
 			return {...state, events: action.response}
 		case 'SET_BREWS':
-		console.log("hello!!")
+		
 			return {...state, brews: action.response}
 		case 'SET_LOCATIONS':
 			return {...state, locations: action.response}	
@@ -34,7 +34,4 @@ const show = (state=initialState.show, action) => {
 
 
 
-
-
-console.log("show.js of reducers 1/3")
 export default show

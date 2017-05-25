@@ -7,10 +7,11 @@ class MainLocationFeed extends Component {
 		if(visibility.feeds.locationFeed) toggle="visible"
 	
 		return(		
-			<div style={{visibility:toggle,position:"absolute"}}>
+			<div style={{visibility:toggle,position:"absolute",backgroundColor:"rgb(242, 242, 242)"}}>
 				<img 
-					width="600px"
-					height="440px"
+					width="800px"
+					
+					alt="location"
 					src="http://i.imgur.com/8cSg3Fi.png" />
 				{locations.map((l,i)=>{
 					return <LocationFeedComponent
@@ -36,16 +37,36 @@ class LocationFeedComponent extends Component {
 	}
 	render(){
 		const {location} = this.props
+		const style={
+			width:"100%",
+			height:"100px",
+			boxShadow:"0 1px 20px -8px #636463",
+			// margin:"20px",
+			display:'inline-block',
+			overflow:"hidden",
+			backgroundColor:"white"
+			// textAlign:"center"
+		}		
 		return (
 			<div
+				style={style}
 				onClick={this.handleClick}>
-				{location.name}:location.city--{location.street}
+				<img
+					src={location.photo}
+					alt="brew"
+					height="100px" />
+				<div style={{height:"100px",display:"inline-block",position:"relative"}}>
+					<header>{location.name}</header>
+					<p>{location.street},{location.city}</p>
+					<p>{location.phone}</p>
+					<p>{location.website}</p>
+				</div>
 			</div>
 		)
 	}
 }
 
 
-console.log("mainLocationFeed from components")
+
 
 export default MainLocationFeed

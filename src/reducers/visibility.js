@@ -46,13 +46,6 @@ const visibility = (state = initialState.visibility, action) => {
 	return state
 }
 
-// for(var keys in state.feeds)
-// feeds[action.component] = true
-
-
-
-console.log("visibility.js of reducers 1/3")
-
 
 
 export default visibility

@@ -35,8 +35,8 @@ class MainFeeds extends Component {
 
 	generateBrewFeed(){
 		const {brews} = this.props.show
-		var filteredBrews = brews.filter((b)=>{return typeof b.name !=="string"})
-		return brews.map((b)=>{
+		var filteredBrews = brews.filter((b)=>{return typeof b.name ==="string"})
+		return filteredBrews.map((b)=>{
 			return {
 				name:b.name,
 				photo:b.photo.url,
@@ -45,36 +45,40 @@ class MainFeeds extends Component {
 		})
 	}
 
+
 	render(){
 		const { toggleVisibility, show, visibility, setModalID } = this.props
 		const { eventFeed, brewFeed } = this.state
 		return(
-			<div 
-				style={{width:"600px"}}>
+			<div>
 					<MainFeedNav 
 						toggleVisibility={toggleVisibility}/>
-					<MainEventFeed
-						events={eventFeed}
-						toggleVisibility={toggleVisibility}
-						visibility={visibility}
-						setModalID={setModalID} />
-					<MainBrewFeed
-						brews={brewFeed}
-						toggleVisibility={toggleVisibility}
-						visibility={visibility}
-						setModalID={setModalID} />
-					<MainLocationFeed
-						locations={show.locations}
-						toggleVisibility={toggleVisibility}
-						visibility={visibility}
-						setModalID={setModalID} />
+					<div style={{width:"900px",margin:"0 auto"}}>
+						<div style={{width:"900px",position:"absolute",margin:"0 auto"}}>
+							<MainEventFeed
+								events={eventFeed}
+								toggleVisibility={toggleVisibility}
+								visibility={visibility}
+								setModalID={setModalID} />
+							<MainBrewFeed
+								brews={brewFeed}
+								toggleVisibility={toggleVisibility}
+								visibility={visibility}
+								setModalID={setModalID} />
+							<MainLocationFeed
+								locations={show.locations}
+								toggleVisibility={toggleVisibility}
+								visibility={visibility}
+								setModalID={setModalID} />
+						</div>
+					</div>
 			</div>
 		)
 	}
 }
 
 
-console.log("mainfeeds.js from containers")
+
 export default MainFeeds
 
 
