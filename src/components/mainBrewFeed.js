@@ -37,7 +37,6 @@ class BrewFeedComponent extends Component{
 		const style={
 			width:"200px",
 			height:"220px",
-			// border:"dotted blue",
 			margin:"30px",
 			display:'inline-block',
 			overflow:"hidden",

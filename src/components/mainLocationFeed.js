@@ -8,11 +8,22 @@ class MainLocationFeed extends Component {
 	
 		return(		
 			<div style={{visibility:toggle,position:"absolute",backgroundColor:"rgb(242, 242, 242)"}}>
+				<div style={{width:"900px",height:"36px",border:"groove rgba(232,232,232,0.6) 1px",padding:"15px",backgroundColor:"rgba(11, 102, 127,0.15)"}}>
+					<input className="input-bar" placeholder="search"></input>
+					<span className="hover underline filter">Growler Fills</span>
+					<span className="hover underline filter">Family Friendly</span>
+					<span className="hover underline filter">Dog Friendly</span>
+					<span className="hover underline filter">21+ Only</span>
+					<span className="hover underline filter">Food Trucks</span>
+					<span className="hover underline filter"	>Food Service</span>
+				</div>
+				<center>
 				<img 
 					width="800px"
 					
 					alt="location"
 					src="http://i.imgur.com/8cSg3Fi.png" />
+				</center>
 				{locations.map((l,i)=>{
 					return <LocationFeedComponent
 						setModalID={setModalID}

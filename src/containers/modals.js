@@ -58,25 +58,45 @@ class BrewModal extends Component {
 		return(
 			<div 
 				className="modal"
-				onClick={this.handleClick}
-				>
+				onClick={this.handleClick}>
+
 				<div className="modal-content">
-				<p>{brewInfo.instagram}</p>
+					<h1>{brewInfo.name}</h1>
 					<img
 						style={{width:"200px", height:"200px"}}
 						src={brewInfo.photo.url}
 						alt="brewzzzz" />
 					<div style={{display:"inline-block"}}>
-						<p>{brewInfo.name}</p>
-						 <a href={brewInfo.website}>Website</a>
-	      		<a href={brewInfo.instagram}>Instagram</a>
-	      		<a href={brewInfo.twitter}>Twitter</a>
-	      		<a href={brewInfo.facebook}>Facebook</a>
+						 <a href={brewInfo.website}>Website</a><br/>
+	      		<a href={brewInfo.instagram}>Instagram</a><br/>
+	      		<a href={brewInfo.twitter}>Twitter</a><br/>
+	      		<a href={brewInfo.facebook}>Facebook</a><br/>
 	      	</div>
+	      	<div>
+	      		<h2>Locations for this Brewery</h2>
+	      		<img src="http://i.imgur.com/PH0B4aC.png" alt="ASD" width="620px" />
+	      		{brewInfo.locations.map((l,i)=>{
+	      			return <BrewModalFeed location={l} key={i} />
+	      		})}
 	      	</div>
+	      </div>
+
 			</div>
 		)
 	}
+}
+
+class BrewModalFeed extends Component{
+	render(){
+		const {location} = this.props
+		return(
+			<div>
+				<h3>{location.name}</h3>
+				<p>{location.street}, {location.city} {location.state}</p>
+			</div>
+		)
+	}
+
 }
 
 class LocationModal extends Component {

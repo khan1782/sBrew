@@ -31,14 +31,33 @@ class MainEventFeed extends Component {
 		const style={
 			visibility:toggle,
 			position:'absolute',
-			// border:"solid red 4px"
-			// marginLeft:"40%"
 			backgroundColor:"rgb(242, 242, 242)",
 			textAlign:"center"
 		}
-
+		// const buttonStyle={
+		// 	padding:"6px",
+		// 	paddingTop:"8px",
+		// 	paddingBottom:"8px",
+		// 	borderRadius:"7px",
+		// 	backgroundColor:"white",
+		// 	marginLeft:"5px",
+		// 	border:"groove rgba(232,232,232,0.4)"
+		// }
 		return(
 			<div style={style}>
+				<div style={{width:"900px",height:"65px",border:"groove rgba(232,232,232,0.6) 1px",padding:"20px",paddingTop:"12px",backgroundColor:"rgba(11, 102, 127,0.15)"}}>
+					<input className="input-bar" placeholder="search"></input>
+					<span className="hover underline filter">Beer Promotions</span>
+					<span className="hover underline filter">Sports</span>
+					<span className="hover underline filter">Beer Release</span>
+					<span className="hover underline filter">Charities</span>
+					<span className="hover underline filter">Food Pairings</span><br/>
+					<div style={{padding:"6px"}}></div>
+					<span className="hover underline filter" style={{marginTop:"12px",marginLeft:"230px"}}>Special Casks</span>
+					<span className="hover underline filter">Festivals</span>
+					<span className="hover underline filter">Education</span>
+					<span className="hover underline filter">Special Taps</span>
+				</div>
 				{events.map((event,i)=>{
 					return <EventFeedComponent
 						setModalID={setModalID}
@@ -83,7 +102,7 @@ class EventFeedComponent extends Component {
 				className="shadow-hover"
 				style={style}
 				onClick={this.handleClick}>
-				<header>{event.title}</header>
+				<header style={{paddingTop:"5px",paddingBottom:"-5px"}}>{event.title}</header>
 				
 				<img 
 					className="hover"
